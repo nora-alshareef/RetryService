@@ -36,13 +36,13 @@ internal class RetryHandler(RetryOptions options, ILogger<RetryHandler> logger, 
             {
                 var parameters =  JsonSerializer.Deserialize<object[] >(task.SerializedInput);
                 var result = MethodRegistry.Execute(function, parameters);
-                await UpdateTask(task, result, Status.Success);
+                await UpdateTask(task, result, Status.Completed);
             }
             catch (Exception ex)
             {
-                var status = task.RetryCount >= options.MaxRetries - 1 ? Status.GiveUp : Status.Failure;
+                var status = task.RetryCount >= options.MaxRetries - 1 ? Status.GiveUp : Status.Error;
                 logger.LogError($"Error processing task {task.Id}: {ex.Message} status: {status} (Attempt {task.RetryCount})");
-                await UpdateTask(task, null, Status.Error, ex.Message);
+                await UpdateTask(task, null, status, ex.Message);
             }
             cancellationToken.ThrowIfCancellationRequested();
         }

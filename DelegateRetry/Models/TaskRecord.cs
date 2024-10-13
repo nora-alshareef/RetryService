@@ -4,15 +4,6 @@
 //
 namespace DelegateRetry.Models;
 
-public enum Status
-{
-    Pending='P',
-    Success='S',
-    Failure='F',
-    Error='E',
-    GiveUp='G'
-}
-
 internal interface ITaskRecord;
 internal class TaskRecord:ITaskRecord
 {
