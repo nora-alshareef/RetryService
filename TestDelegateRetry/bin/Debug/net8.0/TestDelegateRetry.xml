@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestDelegateRetry</name>
+    </assembly>
+    <members>
+        <member name="M:StatefulClass1.Func1(Record1,Record1)">
+            <summary>
+            A method to process two Record1 instances.
+            This method is registered for use with a delegate.
+            </summary>
+            <param name="rec1">The first Record1 instance.</param>
+            <param name="rec2">The second Record1 instance.</param>
+            <returns>A string representation of the processed data.</returns>
+        </member>
+        <member name="M:StatefulClass1.Func2">
+            <summary>
+            A method that performs an action without returning a value.
+            </summary>
+        </member>
+        <member name="M:StatefulClass1.Func3(System.Int32,System.Int32)">
+            <summary>
+            A method that takes primitive parameters and returns their sum.
+            </summary>
+            <param name="a">First integer parameter.</param>
+            <param name="b">Second integer parameter.</param>
+            <returns>The sum of the two integers.</returns>
+        </member>
+        <member name="M:StatefulClass1.Func4(System.Collections.Generic.IEnumerable{Record1})">
+            <summary>
+            A method that takes a collection of Record1 and returns a collection of strings.
+            </summary>
+            <param name="records">A collection of Record1 instances.</param>
+            <returns>A collection of processed string representations of the input records.</returns>
+        </member>
+    </members>
+</doc>
